@@ -5,8 +5,8 @@ import requests
 
 from urllib.parse import urlencode
 
-from constants import *
-from helpers import *
+from .constants import *
+from .helpers import *
 
 class Client(object):
     def __init__(self, key, secret, timeout=30):
@@ -244,6 +244,3 @@ class Client(object):
         }
 
         return self._send_request('private', 'POST', 'trade/order/cancel', {'orderId': originalOrderId}, param)
-
-client = Client('', '')
-print (client.get_public_orderbook('BTC-USDT')['bids'])
